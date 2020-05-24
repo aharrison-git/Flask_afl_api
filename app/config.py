@@ -7,8 +7,6 @@ class Config(object):
     CSRF_ENABLED = True
     
 class DevelopmentConfigDB(Config):
-    #SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        #'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     #app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:postgres@localhost:5432/teams_api"
     SQLALCHEMY_DATABASE_URI = "postgresql://postgres:adrian@localhost:5432/afl"
@@ -19,7 +17,7 @@ class DevelopmentConfigDB(Config):
 class TestingConfigDB(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     #app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:postgres@localhost:5432/teams_api"
-    SQLALCHEMY_DATABASE_URI = "postgresql://adrian:adrian@localhost:5432/afl_test"
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:adrian@localhost:5432/afl_test"
     TESTING = True
     DEBUG = True
 
