@@ -4,8 +4,10 @@ from flask import current_app as app
 from app.model.players import PlayerModel
 import datetime
 from app import Helpers
+from flask_jwt_extended import jwt_required
 
 @app.route('/api/v1/players/<player_id>', methods=['GET','PUT','PATCH', 'DELETE'])
+@jwt_required
 def handle_player(player_id):
     player = PlayerModel.query.get_or_404(player_id)
     if request.method == 'GET':

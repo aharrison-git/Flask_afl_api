@@ -2,9 +2,11 @@ from flask import request
 from app import db
 from app.model.players import PlayerModel
 from flask import current_app as app
+from flask_jwt_extended import jwt_required
 
 
 @app.route('/api/v1/players/search', methods=['GET','POST'])
+@jwt_required
 def search_players():
     if request.method == 'POST':
         if request.is_json():

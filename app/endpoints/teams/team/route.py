@@ -2,9 +2,11 @@ from flask import request
 from app import db
 from app.model.teams import TeamModel
 from flask import current_app as app
+from flask_jwt_extended import jwt_required
 
 
 @app.route('/api/v1/teams/<team_id>', methods=['GET', 'PUT', 'PATCH', 'DELETE'])
+@jwt_required
 def handle_team(team_id):
     team = TeamModel.query.get_or_404(team_id)
 

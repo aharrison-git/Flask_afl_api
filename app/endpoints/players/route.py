@@ -3,8 +3,10 @@ from app import db
 from app.model.players import PlayerModel
 from app import Helpers
 from flask import current_app as app
+from flask_jwt_extended import jwt_required
 
 @app.route('/api/v1/players', methods=['POST', 'GET'])
+@jwt_required
 def handle_players():
     if request.method == 'POST':
         if request.is_json:
