@@ -2,6 +2,7 @@ from flask import Flask
 from app.config import app_config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
 
 import os
 
@@ -25,6 +26,7 @@ def create_app(config_class=app_config["development"]):
     app.config.from_object(config_class)
     db.init_app(app)
     migrate.init_app(app, db)
+    jwt = JWTManager(app) 
     with app.app_context():
         # Include our Routes
         from app.endpoints.teams import route
@@ -33,21 +35,11 @@ def create_app(config_class=app_config["development"]):
         from app.endpoints.players import route
         from app.endpoints.players.player import route
         from app.endpoints.players.search import route
+        from app.endpoints.users.login import route
+        from app.endpoints.users import route
         from app.model import teams
         from app.model import players
+        from app.model import users
         return app
 
     
-
-        
-
-'''
-from app.endpoints.teams import route
-from app.endpoints.teams.team import route
-from app.endpoints.teams.search import route
-from app.endpoints.players import route
-from app.endpoints.players.player import route
-from app.endpoints.players.search import route
-from app.model import teams
-from app.model import players
-'''
