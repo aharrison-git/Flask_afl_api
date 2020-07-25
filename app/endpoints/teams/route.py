@@ -19,7 +19,7 @@ def handle_teams():
                                     years_in_afl=data['years_in_afl'])
             db.session.add(new_team)
             db.session.commit()
-            return {"message": f"team {new_team.name} has been created successfully."}
+            return {"message": f"Team {new_team.name} has been created successfully."}
         else:
             return {"error": "The request payload is not in JSON format"}
 

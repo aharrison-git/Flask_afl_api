@@ -6,19 +6,20 @@ class UsersModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
-    password = db.Column(db.String(128), nullable=False)
+    password = db.Column(db.String, nullable=False)
 
 
-    def __init__(self, username, password):
+    def __init__(self, username):
         self.username = username
-        self.password = self.set_password(password)
-
+        
 
     def __repr__(self):
         return f"<User {self.username}>"
 
     def set_password(self, password):
-        return generate_password_hash(password)
+        self.password = generate_password_hash(password)
+        #print(f"UsersModel: set_password:  password is: {password}, hash is: [{self.password}]")
 
     def check_password(self, password):
+        #print(f"UsersModel:  check_password: password is: {password}, hash is: [{self.password}]")
         return check_password_hash(self.password, password)

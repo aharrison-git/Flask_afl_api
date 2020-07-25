@@ -15,6 +15,9 @@ def handle_team(team_id):
             "id": team.id,
             "name": team.name,
             "location": team.location,
+            "premierships": team.premierships,
+            "wooden_spoons": team.wooden_spoons,
+            "years_in_afl": team.years_in_afl
         }
         return {"message": "success", "team": response}
 
@@ -43,4 +46,4 @@ def handle_team(team_id):
     elif request.method == 'DELETE':
         db.session.delete(team)
         db.session.commit()
-        return {"message": f"Team {team.name} successfully deleted."}
+        return {"message": f"Team {team.name} successfully deleted"}
