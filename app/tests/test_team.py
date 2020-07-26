@@ -5,7 +5,7 @@ from test_data import team as test_data_team
 
 LOGGER = logging.getLogger(__name__)
 
-@pytest.mark.skip
+
 def test_get_team_by_id(client, test_data, access_token):
     headers = {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"}
     id = 1
@@ -17,7 +17,7 @@ def test_get_team_by_id(client, test_data, access_token):
     assert response_body["team"]["location"] == test_data_team["location"]
     assert response_body["team"]["name"] == test_data_team["name"]
     
-@pytest.mark.skip
+
 def test_get_team_invalid_id(client, test_data, access_token):
     headers = {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"}
     id = 99
