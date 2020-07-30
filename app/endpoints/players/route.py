@@ -4,10 +4,14 @@ from app.model.players import PlayerModel
 from app import Helpers
 from flask import current_app as app
 from flask_jwt_extended import jwt_required
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 @app.route('/api/v1/players', methods=['POST', 'GET'])
 @jwt_required
 def handle_players():
+    LOGGER.debug("players endpoint handler")
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
@@ -21,7 +25,7 @@ def handle_players():
             )
             db.session.add(new_player)
             db.session.commit()
-            return {"message": f"player {new_player.first_name} {new_player.last_name} has been created successfully."}
+            return {"message": f"Player {new_player.first_name} {new_player.last_name} has been created successfully."}
         else:
             return {"error": "The request payload is not in JSON format"}
 

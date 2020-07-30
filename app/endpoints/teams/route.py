@@ -9,6 +9,7 @@ from flask_jwt_extended import jwt_required
 @jwt_required
 def handle_teams():
     print("request method: {}".format(request.method))
+    LOGGER.debug("teams handler")
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()

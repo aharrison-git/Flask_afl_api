@@ -20,7 +20,7 @@ class TestingConfigDB(Config):
     SQLALCHEMY_DATABASE_URI = "postgresql://postgres:adrian@localhost:5432/afl_test"
     TESTING = True
     DEBUG = True
-
+    
 
 app_config = {
     'development': DevelopmentConfigDB,

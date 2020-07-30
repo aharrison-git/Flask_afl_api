@@ -14,7 +14,6 @@ class PlayerModel(db.Model):
     team = db.relationship("TeamModel", backref="player")
 
     def __init__(self, first_name, last_name, dob, matches_played, team_id, career_goals):
-    #def __init__(self, first_name, last_name, dob, matches_played, career_goals):
         self.first_name = first_name
         self.last_name = last_name
         self.dob = dob
@@ -23,4 +22,4 @@ class PlayerModel(db.Model):
         self.career_goals = career_goals
 
     def __repr__(self):
-        return f"<Player {self.first_name} {last_name}>"
+        return f"<Player {self.first_name} {self.last_name}>"

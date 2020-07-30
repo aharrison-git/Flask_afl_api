@@ -3,13 +3,14 @@ from app import db
 from app.model.players import PlayerModel
 from flask import current_app as app
 from flask_jwt_extended import jwt_required
+from app import Helpers
 
 
 @app.route('/api/v1/players/search', methods=['GET','POST'])
 @jwt_required
 def search_players():
     if request.method == 'POST':
-        if request.is_json():
+        if request.is_json:
             data = request.get_json()
             players = PlayerModel.query
             if "first_name" in data: players = players.filter_by(first_name=data["first_name"])
@@ -48,7 +49,7 @@ def search_players():
             "id": player.id,
             "first_name": player.first_name,
             "last_name": player.last_name,
-            "dob": player.dob,
+            "dob": Helpers.convertDateObjToDateString(player.dob),
             "matches_played": player.matches_played,
             "career_goals": player.career_goals,
             "team_id": player.team_id

@@ -5,11 +5,20 @@ from app.model.players import PlayerModel
 import datetime
 from app import Helpers
 from flask_jwt_extended import jwt_required
+import logging
+
+LOGGER = logging.getLogger(__name__)
+
 
 @app.route('/api/v1/players/<player_id>', methods=['GET','PUT','PATCH', 'DELETE'])
 @jwt_required
 def handle_player(player_id):
-    player = PlayerModel.query.get_or_404(player_id)
+    LOGGER.debug("players/<id> endpoint handler")
+    #player = PlayerModel.query.get_or_404(player_id)
+    LOGGER.debug(f"player route - id: {player_id}")
+    player = PlayerModel.query.get(player_id)
+    
+    LOGGER.debug(f"player route - player query: {player}")
     if request.method == 'GET':
         response = {
             "player_id": player.id,
@@ -35,7 +44,7 @@ def handle_player(player_id):
         player.team_id = data['team_id']
         db.session.add(player)
         db.session.commit()
-        return { "message": f"Player {player.first_name} {player.last_name} successfully updated"}
+        return { "message": f"Player {player.first_name} {player.last_name} has been updated successfully."}
 
     elif request.method == 'PATCH':
         data = request.get_json()
@@ -47,9 +56,9 @@ def handle_player(player_id):
         if 'team_id' in data: player.team_id = data['team_id']
         db.session.add(player)
         db.session.commit()
-        return { "mesage": f"Player {player.first_name} {player.last_name} successfully updated"}
+        return { "message": f"Player {player.first_name} {player.last_name} has been updated successfully."}
 
     elif request.method == 'DELETE':
         db.session.delete(player)
         db.session.commit()
-        return { "message": f"Player {player.first_name} {player.last_name} successfully deleted"}
+        return { "message": f"Player {player.first_name} {player.last_name} has been deleted successfully."}
