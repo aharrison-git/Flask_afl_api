@@ -80,12 +80,12 @@ Creates a new user in the database
 POST
 
 ##### Params
-```
+
 {
-    "username": <string>,
-    "password": <string>
+    "username": \<string\>,
+    "password": \<string\>
 }
-```
+
 
 ##### Success Response
 Status Code: 201
@@ -105,17 +105,17 @@ Log in user and obtain access token
 POST
 
 ##### Params
-```
 {
     "username": \<string\>,
     "password": \<string\>
 }
-```
+
+
 
 ##### Success Response
 Status Code: 200
 
-Message: {"access_token": <token>}
+Message: {"access_token": \<token\>}
 
 
 
@@ -132,7 +132,7 @@ GET
 ##### Headers
 Content-Type: application/json
 
-Authorization: Bearer <access_token>
+Authorization: Bearer \<access_token\>
 
 ##### Params
 None
@@ -156,6 +156,8 @@ Example:
         }]
 }
 ```
+
+
 
 
 #### Team by ID
