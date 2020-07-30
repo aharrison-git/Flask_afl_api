@@ -131,20 +131,34 @@ None
 
 ##### Success Response
 Status Code: 200
-Message: {"Count: <int>, "Teams": <[{Teams}]>
+Message: {"Count: <int>, "Teams": <[{Teams}]>}
 
 Example:
+
 {
+
     "Count: 1, 
+
     "Teams": [
-        {"id": 1,
+    
+    {
+    
+        "id": 1,
+    
         "location": "Melbourne",
+    
         "name": "Essendon",
+    
         "premierships": 12,
+    
         "wooden_spoons": 7,
+    
         "years_in_afl": 104
+    
         }]
+
 }
+
 
 
 #### Team by ID
