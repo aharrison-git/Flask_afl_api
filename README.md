@@ -80,14 +80,18 @@ Creates a new user in the database
 POST
 
 ##### Params
+```
 {
-    "username": \<string\>,
-    "password": \<string\>
+    "username": <string>,
+    "password": <string>
 }
+```
 
 ##### Success Response
 Status Code: 201
+
 Message: {"message": "user \<username\> has been created successfully."}
+
 
 
 
@@ -101,13 +105,16 @@ Log in user and obtain access token
 POST
 
 ##### Params
+```
 {
     "username": \<string\>,
     "password": \<string\>
 }
+```
 
 ##### Success Response
 Status Code: 200
+
 Message: {"access_token": <token>}
 
 
@@ -124,6 +131,7 @@ GET
 
 ##### Headers
 Content-Type: application/json
+
 Authorization: Bearer <access_token>
 
 ##### Params
@@ -131,52 +139,43 @@ None
 
 ##### Success Response
 Status Code: 200
+
 Message: {"Count: <int>, "Teams": <[{Teams}]>}
 
 Example:
-
+```
 {
-
     "Count: 1, 
-
     "Teams": [
-    
-    {
-    
-        "id": 1,
-    
+        {"id": 1,
         "location": "Melbourne",
-    
         "name": "Essendon",
-    
         "premierships": 12,
-    
         "wooden_spoons": 7,
-    
         "years_in_afl": 104
-    
         }]
-
 }
-
+```
 
 
 #### Team by ID
 Get team by ID
 
 ##### URL
-/team/<id>
+/team/\<id\>
 
 ##### Method
 GET
 
 ##### Headers
 Content-Type: application/json,
+
 Authorization: Bearer <access_token>
 
 ##### Params
-id: [integer]
+id: \<integer\>
 
 ##### Success Response
 Status Code: 200
+
 Message: {"message": "success", "team": <{Team}>}
