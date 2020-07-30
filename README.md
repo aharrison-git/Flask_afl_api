@@ -6,13 +6,20 @@ This API utilises SQLAlchemy for an ORM with a PostgreSQL database and Pytest as
 
 ## Getting Started
 
-It is recommended that the user first creates a python virtual environment. The following command will install all dependencies including Flask related packages, SQLAlchemy, Pytest etc. 
-``` $ pip3 install -r requirements.txt ```
+It is recommended that the user first creates a python virtual environment. 
+```
+$ python3 -m venv v_env
+```
+
+The following command will install all dependencies including Flask related packages, SQLAlchemy, Pytest etc. 
+``` 
+$ pip3 install -r requirements.txt 
+```
 
 ### PostgreSQL
-Some knowledge of PostgreSQL will be required as the reader will have to create two databases. PostgreSQL and a client, such as 'psql' will need to installed.
+Some knowledge of PostgreSQL will be required as the reader will have to create two databases. PostgreSQL and a client, such as 'psql', will need to be installed.
 
-#### Create PostgresQL databases 
+#### Create PostgreSQL databases 
 To create the main 'afl' database:
 ```
 $ createdb afl
@@ -56,6 +63,7 @@ $flask run
 ```
 
 
+
 ## The API
 A user must login first in order to get an access token. Once logged in, the user will be able to obtain information regarding teams and players. For both team and player models, the user is able to perform CRUD operations. For most endpoints, the access token must be passed in as a header.
  
@@ -73,13 +81,14 @@ POST
 
 ##### Params
 {
-    "username": <string>,
-    "password": <string>
+    "username": \<string\>,
+    "password": \<string\>
 }
 
 ##### Success Response
 Status Code: 201
-Message: {"message": "user <username> has been created successfully."}
+Message: {"message": "user \<username\> has been created successfully."}
+
 
 
 #### User Login
@@ -93,8 +102,8 @@ POST
 
 ##### Params
 {
-    "username": <string>,
-    "password": <string>
+    "username": \<string\>,
+    "password": \<string\>
 }
 
 ##### Success Response
@@ -148,11 +157,11 @@ Get team by ID
 GET
 
 ##### Headers
-Content-Type: application/json
+Content-Type: application/json,
 Authorization: Bearer <access_token>
 
 ##### Params
-id: <int>
+id: [integer]
 
 ##### Success Response
 Status Code: 200
