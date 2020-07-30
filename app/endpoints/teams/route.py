@@ -3,13 +3,16 @@ from app import db
 from app.model.teams import TeamModel
 from flask import current_app as app
 from flask_jwt_extended import jwt_required
+import logging
 
+
+LOGGER = logging.getLogger(__name__)
 
 @app.route('/api/v1/teams', methods=['POST', 'GET'])
 @jwt_required
 def handle_teams():
     print("request method: {}".format(request.method))
-    LOGGER.debug("teams handler")
+    #LOGGER.debug("teams handler")
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
