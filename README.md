@@ -119,7 +119,7 @@ Message: {"access_token": \<token\>}
 
 
 
-
+---
 #### Teams
 Get all teams
 
