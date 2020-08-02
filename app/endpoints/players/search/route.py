@@ -4,7 +4,9 @@ from app.model.players import PlayerModel
 from flask import current_app as app
 from flask_jwt_extended import jwt_required
 from app import Helpers
+import logging
 
+LOGGER = logging.getLogger(__name__)
 
 @app.route('/api/v1/players/search', methods=['GET','POST'])
 @jwt_required
@@ -18,6 +20,9 @@ def search_players():
             if "dob" in data: players = players.filter_by(dob=data["dob"])
             if "matches_played" in data: players = players.filter_by(matches_played=data["matches_played"])
             if "career_goals" in data: players = players.filter_by(career_goals=data["career_goals"])
+            if "team_id" in data: players = players.filter_by(team_id=data["team_id"])
+            if "id" in data: players = players.filter_by(id=data["id"])
+                
 
             players = players.all()
             results = [

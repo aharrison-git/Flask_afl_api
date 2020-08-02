@@ -12,16 +12,12 @@ def search_teams():
         if request.is_json:
             data = request.get_json()
             teams = TeamModel.query
-            if "name" in data:
-                teams = teams.filter_by(name=data["name"])
-            if "premierships" in data:
-                teams = teams.filter_by(premierships=data["premierships"])
-            if "wooden_spoons" in data:
-                teams = teams.filter_by(wooden_spoons=data["wooden_spoons"])
-            if "years_in_afl" in data:
-                teams = teams.filter_by(years_in_afl=data["years_in_afl"])
-            if "location" in data:
-                teams = teams.filter_by(location=data["location"])
+            if "name" in data: teams = teams.filter_by(name=data["name"])
+            if "premierships" in data: teams = teams.filter_by(premierships=data["premierships"])
+            if "wooden_spoons" in data: teams = teams.filter_by(wooden_spoons=data["wooden_spoons"])
+            if "years_in_afl" in data: teams = teams.filter_by(years_in_afl=data["years_in_afl"])
+            if "location" in data: teams = teams.filter_by(location=data["location"])
+            if "id" in data: teams = teams.filter_by(id=data["id"])
             
             teams = teams.all()
             results = [

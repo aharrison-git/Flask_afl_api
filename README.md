@@ -200,6 +200,8 @@ Content-Type: application/json,
 Authorization: Bearer <\access_token\>
 
 ##### Params
+id : \<id\>
+
 name: \<string\>
 
 location: \<string\>
@@ -319,6 +321,8 @@ Content-Type: application/json,
 Authorization: Bearer <\access_token\>
 
 ##### Params
+id : \<id\>
+
 first_name: \<string\>
 
 last_name: \<string\>
@@ -329,7 +333,7 @@ matches_playes: \<integer\>
 
 career_goals: \<integer\>
 
-
+team_id: \<integer\>
 
 ##### Success Response
 Status Code: 200
