@@ -9,6 +9,7 @@ This API utilises SQLAlchemy for an ORM with a PostgreSQL database and Pytest as
 It is recommended that the user first creates a python virtual environment. 
 ```
 $ python3 -m venv v_env
+$ source v_env\bin\activate
 ```
 
 The following command will install all dependencies including Flask related packages, SQLAlchemy, Pytest etc. 
@@ -200,10 +201,15 @@ Authorization: Bearer <\access_token\>
 
 ##### Params
 name: \<string\>
+
 location: \<string\>
+
 premierships: \<integer\>
+
 wooden_spoons: \<integer\>
+
 years_in_afl: \<integer\>
+
 
 ##### Success Response
 Status Code: 200
@@ -314,10 +320,15 @@ Authorization: Bearer <\access_token\>
 
 ##### Params
 first_name: \<string\>
+
 last_name: \<string\>
+
 dob: \<string\>
+
 matches_playes: \<integer\>
+
 career_goals: \<integer\>
+
 
 
 ##### Success Response
