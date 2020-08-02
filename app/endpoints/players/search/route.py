@@ -23,7 +23,7 @@ def search_players():
             results = [
                 {
                 "id": player.id,
-                "first_name": player.frst_name,
+                "first_name": player.first_name,
                 "last_name": player.last_name,
                 "dob": player.dob,
                 "matches_played": player.matches_played,

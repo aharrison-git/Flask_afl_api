@@ -159,7 +159,7 @@ Example:
 
 
 
-
+---
 #### Team by ID
 Get team by ID
 
@@ -172,7 +172,7 @@ GET
 ##### Headers
 Content-Type: application/json,
 
-Authorization: Bearer <access_token>
+Authorization: Bearer <\access_token\>
 
 ##### Params
 id: \<integer\>
@@ -181,3 +181,146 @@ id: \<integer\>
 Status Code: 200
 
 Message: {"message": "success", "team": <{Team}>}
+
+
+---
+#### Team Search
+Get team by ID
+
+##### URL
+/team/search
+
+##### Method
+GET / POST
+
+##### Headers
+Content-Type: application/json,
+
+Authorization: Bearer <\access_token\>
+
+##### Params
+name: \<string\>
+location: \<string\>
+premierships: \<integer\>
+wooden_spoons: \<integer\>
+years_in_afl: \<integer\>
+
+##### Success Response
+Status Code: 200
+
+Message: {"count": \<length\>, "teams": <{Team}>}
+
+
+
+---
+#### Players
+Get all players
+
+##### URL
+/players
+
+##### Method
+GET
+
+##### Headers
+Content-Type: application/json
+
+Authorization: Bearer \<access_token\>
+
+##### Params
+None
+
+##### Success Response
+Status Code: 200
+
+Message: {"Count: <int>, "Players": <[{Players}]>}
+
+Example:
+```
+{
+    "count": 3,
+    "players": [
+        {
+            "career_goals": 518,
+            "dob": "1978-05-14",
+            "first_name": "Brent",
+            "id": 1,
+            "last_name": "Harvey",
+            "matches_played": 432,
+            "team_id": 2
+        },
+        {
+            "career_goals": 518,
+            "dob": "1991-06-26",
+            "first_name": "Dustin",
+            "id": 2,
+            "last_name": "Martin",
+            "matches_played": 232,
+            "team_id": 3
+        },
+        {
+            "career_goals": 97,
+            "dob": "1992-05-14",
+            "first_name": "Dyson",
+            "id": 3,
+            "last_name": "Heppell",
+            "matches_played": 169,
+            "team_id": 1
+        }
+    ]
+}
+```
+
+
+
+---
+#### Player by ID
+Get player by ID
+
+##### URL
+/player/\<id\>
+
+##### Method
+GET
+
+##### Headers
+Content-Type: application/json,
+
+Authorization: Bearer <\access_token\>
+
+##### Params
+id: \<integer\>
+
+##### Success Response
+Status Code: 200
+
+Message: {"message": "success", "player": <{Player}>}
+
+
+---
+#### Player Search
+Get player by ID
+
+##### URL
+/player/search
+
+##### Method
+GET / POST
+
+##### Headers
+Content-Type: application/json,
+
+Authorization: Bearer <\access_token\>
+
+##### Params
+first_name: \<string\>
+last_name: \<string\>
+dob: \<string\>
+matches_playes: \<integer\>
+career_goals: \<integer\>
+
+
+##### Success Response
+Status Code: 200
+
+Message: {"count": \<length\>, "Players": <{Player}>}
